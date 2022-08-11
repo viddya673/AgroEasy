@@ -561,6 +561,15 @@ pre code {
   margin-left: auto;
 }
 
+.containe {
+  width: 100%;
+  padding-right: 15px;
+  padding-left: 15px;
+  margin-right: auto;
+  margin-left: auto;
+  color: #000;
+}
+
 @media (min-width: 576px) {
   .container {
     max-width: 540px;
@@ -1084,6 +1093,7 @@ pre code {
     -ms-flex: 0 0 8.333333%;
     flex: 0 0 8.333333%;
     max-width: 8.333333%;
+    color: #000;
   }
   .col-md-2 {
     -webkit-box-flex: 0;
@@ -1285,6 +1295,7 @@ pre code {
     -ms-flex: 0 0 8.333333%;
     flex: 0 0 8.333333%;
     max-width: 8.333333%;
+    color: #000;
   }
   .col-lg-2 {
     -webkit-box-flex: 0;
@@ -2503,8 +2514,8 @@ fieldset:disabled a.btn {
 
 .btn-primary {
   color: #fff;
-  background-color: #007bff;
-  border-color: #007bff;
+  background-color: #090a0a;
+  border-color: #090a0a;
 }
 
 .btn-primary:hover {
@@ -2605,7 +2616,7 @@ fieldset:disabled a.btn {
 
 .btn-info {
   color: #fff;
-  background-color: #17a2b8;
+  background-color: #272929;
   border-color: #17a2b8;
 }
 
@@ -4436,10 +4447,10 @@ tbody.collapse.show {
   flex-direction: column;
   min-width: 0;
   word-wrap: break-word;
-  background-color: #fff;
+  background-color: rgb(53, 51, 51);
   background-clip: border-box;
-  border: 1px solid rgba(0, 0, 0, 0.125);
-  border-radius: 0.25rem;
+  border: 2px solid rgba(0, 0, 0, 0.125);
+  border-radius: 40 rem;
 }
 
 .card > hr {
@@ -8741,6 +8752,7 @@ button.bg-dark:focus {
 
 .text-center {
   text-align: center !important;
+  color: #ffff;
 }
 
 @media (min-width: 576px) {

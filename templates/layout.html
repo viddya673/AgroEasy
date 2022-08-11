@@ -121,6 +121,16 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 	<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
 		integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
 		crossorigin="anonymous"></script>
+
+		    <!--firebase-->
+			<script src="https://www.gstatic.com/firebasejs/7.6.2/firebase-app.js"></script>
+			<script src="https://www.gstatic.com/firebasejs/7.6.2/firebase-database.js"></script>
+			<script src="https://www.gstatic.com/firebasejs/7.6.2/firebase-firestore.js"></script>
+			<script src="https://www.gstatic.com/firebasejs/live/3.1/firebase.js"></script>
+		
+<!-- 		
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/firebase/7.14.1-0/firebase.js"></script>-->
+		<script src="./mail.js"></script> 
 	</body>
 	<!-- css files -->
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
@@ -154,12 +164,10 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
 <body>
 
+	<!-- src="./mail.js"></script>  -->
 	<!-- Navigation -->
 	<nav class="navbar navbar-expand-lg navbar-dark bg-dark static-top" style="background-color: #1C00ff00;">
 		<div class="container">
-			<a class="navbar-brand" href="{{ url_for('home') }}">
-				<img src="{{ url_for('static', filename='images/logo.jpg') }}" style="width: 90px; height: 55px" alt="">
-			</a>
 			<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive"
 				aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
 				<span class="navbar-toggler-icon"></span>
@@ -185,8 +193,42 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 		</div>
 	</nav>
 
+	<p id="demo">Sensor Data</p>
 
+	<script>
+		var firebaseConfig = {
+    apiKey: "AIzaSyAIwOxFhwqrg4gZifj6vrLVrSEziVm5Yng",
+    authDomain: "agro-easy-firebase.firebaseapp.com",
+    databaseURL: "https://agro-easy-firebase-default-rtdb.firebaseio.com",
+    projectId: "agro-easy-firebase",
+    storageBucket: "agro-easy-firebase.appspot.com",
+    messagingSenderId: "688165203405",
+    appId: "1:688165203405:web:6d17118a3612ca96ef6884",
+    measurementId: "G-08K2G89QR8"
+  };
 
+  //initialize firebase
+  var data;
+  //document.getElementById("output").innerHTML=name;
+  firebase.initializeApp(firebaseConfig);
+
+  var firebaseRef = firebase.database().ref("SensorData");
+  firebaseRef.once("value",function(snapshot)
+  {
+	  data =snapshot.val();
+	  
+	  for (let i in data)
+	  {
+		  console.log(i);
+		  document.querySelector('#demo').innerHTML+=`
+			<div class="col-lg-1 col-md-1 blog-left mb-lg-0 mb-sm-1 pb-lg-0 pb-1 displ" >
+			<h5>${i}: ${data[i]}</h5>
+				</div>
+				</footer
+		  `
+	  }
+  })
+	</script> 
 
 	{% block body %} {% endblock %}
 
@@ -196,27 +238,17 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 			<!-- logo -->
 			<h2 class="logo2 text-center">
 				<a href="{{ url_for('home') }}">
-					Harvestify
+					AGRO-EASY
 				</a>
 			</h2>
 			<!-- //logo -->
 			<!-- address -->
 			<div class="contact-left-footer mt-4">
-
-
-
-
-
-				<!-- <a href="community.html">Community</a> -->
 				</p>
 			</div>
 			<div class="w3l-copy text-center">
-				<p class="text-da">An Environmental Intelligence Startup<br> </p>
+				<p class="text-da">One stop solution for your need<br> </p>
 			</div>
-			<p class="homelogo">
-			<p>Made with ❤️ by Atharva</p>
-			<p>&copy; Copyright 2022 Atharva Ingle</p>
-			
 		</div>
 	</footer>
 	<!-- //footer -->
